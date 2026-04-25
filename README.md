@@ -143,14 +143,11 @@ npm run dev
 
 Detailed deployment steps are documented in `DEPLOYMENT.md`.
 
-## Screenshots (Optional)
+## Screenshots
 
-Add UI screenshots in a `screenshots/` folder and reference them here:
-
-```md
-![Login](./screenshots/login.png)
+![Signup](./screenshots/signup.png)
 ![Dashboard](./screenshots/dashboard.png)
-```
+![Login](./screenshots/login.png)
 
 ## Author
 
