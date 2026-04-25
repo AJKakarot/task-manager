@@ -9,6 +9,7 @@ const protect = asyncHandler(async (req, res, next) => {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     const error = new Error("Authorization token is required");
     error.statusCode = 401;
+    error.code = "AUTH_TOKEN_MISSING";
     throw error;
   }
 
@@ -20,6 +21,7 @@ const protect = asyncHandler(async (req, res, next) => {
   } catch {
     const error = new Error("Invalid or expired token");
     error.statusCode = 401;
+    error.code = "AUTH_TOKEN_INVALID";
     throw error;
   }
 
@@ -27,6 +29,7 @@ const protect = asyncHandler(async (req, res, next) => {
   if (!user) {
     const error = new Error("User not found");
     error.statusCode = 401;
+    error.code = "AUTH_USER_NOT_FOUND";
     throw error;
   }
 

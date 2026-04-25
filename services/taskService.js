@@ -5,6 +5,7 @@ const assertValidTaskId = (taskId) => {
   if (!mongoose.Types.ObjectId.isValid(taskId)) {
     const error = new Error("Invalid task id");
     error.statusCode = 400;
+    error.code = "INVALID_TASK_ID";
     throw error;
   }
 };
@@ -33,6 +34,7 @@ const updateTaskForUser = async (taskId, userId, payload) => {
   if (!task) {
     const error = new Error("Task not found");
     error.statusCode = 404;
+    error.code = "TASK_NOT_FOUND";
     throw error;
   }
 
@@ -47,6 +49,7 @@ const deleteTaskForUser = async (taskId, userId) => {
   if (!task) {
     const error = new Error("Task not found");
     error.statusCode = 404;
+    error.code = "TASK_NOT_FOUND";
     throw error;
   }
 };

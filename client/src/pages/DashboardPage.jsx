@@ -11,6 +11,7 @@ import {
   getTasks,
   updateTask
 } from "../services/taskService.js";
+import { showApiErrorToast } from "../utils/errorToast.js";
 
 const DashboardPage = () => {
   const { user, logout } = useAuth();
@@ -28,8 +29,7 @@ const DashboardPage = () => {
       const taskList = await getTasks();
       setTasks(taskList);
     } catch (requestError) {
-      setError(requestError.message);
-      toast.error(requestError.message);
+      setError(showApiErrorToast(requestError));
     } finally {
       setIsInitialLoading(false);
     }
@@ -55,8 +55,7 @@ const DashboardPage = () => {
       setDescription("");
       toast.success("Task created");
     } catch (requestError) {
-      setError(requestError.message);
-      toast.error(requestError.message);
+      setError(showApiErrorToast(requestError));
     } finally {
       setIsSubmitting(false);
     }
@@ -70,8 +69,7 @@ const DashboardPage = () => {
       setTasks((prev) => prev.map((item) => (item._id === task._id ? updatedTask : item)));
       toast.success(`Task marked ${nextStatus}`);
     } catch (requestError) {
-      setError(requestError.message);
-      toast.error(requestError.message);
+      setError(showApiErrorToast(requestError));
     }
   };
 
@@ -81,8 +79,7 @@ const DashboardPage = () => {
       setTasks((prev) => prev.filter((task) => task._id !== taskId));
       toast.success("Task deleted");
     } catch (requestError) {
-      setError(requestError.message);
-      toast.error(requestError.message);
+      setError(showApiErrorToast(requestError));
     }
   };
 

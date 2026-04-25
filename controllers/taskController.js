@@ -5,27 +5,43 @@ import {
   getTasksForUser,
   updateTaskForUser
 } from "../services/taskService.js";
+import { sendSuccess } from "../utils/apiResponse.js";
 
 const createTask = asyncHandler(async (req, res) => {
   const task = await createTaskForUser(req.user._id, req.body);
-  res.status(201).json({ success: true, data: task });
+  return sendSuccess(res, {
+    statusCode: 201,
+    message: "Task created successfully",
+    data: task
+  });
 });
 
 const getTasks = asyncHandler(async (req, res) => {
   const tasks = await getTasksForUser(req.user._id);
-  res.status(200).json({ success: true, data: tasks });
+  return sendSuccess(res, {
+    statusCode: 200,
+    message: "Tasks fetched successfully",
+    data: tasks
+  });
 });
 
 const updateTask = asyncHandler(async (req, res) => {
   const task = await updateTaskForUser(req.params.id, req.user._id, req.body);
 
-  res.status(200).json({ success: true, data: task });
+  return sendSuccess(res, {
+    statusCode: 200,
+    message: "Task updated successfully",
+    data: task
+  });
 });
 
 const deleteTask = asyncHandler(async (req, res) => {
   await deleteTaskForUser(req.params.id, req.user._id);
 
-  res.status(200).json({ success: true, message: "Task deleted successfully" });
+  return sendSuccess(res, {
+    statusCode: 200,
+    message: "Task deleted successfully"
+  });
 });
 
 export { createTask, deleteTask, getTasks, updateTask };

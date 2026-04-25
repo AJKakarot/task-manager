@@ -6,6 +6,7 @@ import InputField from "../components/InputField.jsx";
 import PrimaryButton from "../components/PrimaryButton.jsx";
 import useAuth from "../hooks/useAuth.js";
 import { login as loginRequest } from "../services/authService.js";
+import { showApiErrorToast } from "../utils/errorToast.js";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -29,8 +30,7 @@ const LoginPage = () => {
       toast.success("Logged in successfully");
       navigate("/dashboard", { replace: true });
     } catch (requestError) {
-      setError(requestError.message);
-      toast.error(requestError.message);
+      setError(showApiErrorToast(requestError));
     } finally {
       setIsLoading(false);
     }

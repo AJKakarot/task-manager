@@ -1,11 +1,16 @@
+import { sendError } from "../utils/apiResponse.js";
+
 const errorHandler = (err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
+  const code = err.code || "INTERNAL_SERVER_ERROR";
 
-  res.status(statusCode).json({
-    success: false,
+  return sendError(res, {
+    statusCode,
     message,
-    ...(process.env.NODE_ENV === "development" && { stack: err.stack })
+    code,
+    errors: err.details,
+    stack: process.env.NODE_ENV === "development" ? err.stack : undefined
   });
 };
 

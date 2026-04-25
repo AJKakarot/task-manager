@@ -1,6 +1,8 @@
+import { sendSuccess } from "../utils/apiResponse.js";
+
 const getHealth = (req, res) => {
-  res.status(200).json({
-    success: true,
+  return sendSuccess(res, {
+    statusCode: 200,
     message: "API is healthy"
   });
 };
