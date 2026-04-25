@@ -81,10 +81,7 @@ flowchart LR
 
 ## Live Demo
 
-- Frontend (Vercel): `https://your-frontend-url.vercel.app`
-- Backend (Render): `https://your-backend-url.onrender.com/api`
-
-> Replace the URLs above with your deployed links.
+- Frontend (Vercel): [https://task-manager-nine-chi-77.vercel.app/](https://task-manager-nine-chi-77.vercel.app/)
 
 ## Setup Instructions
 
@@ -151,4 +148,4 @@ Detailed deployment steps are documented in `DEPLOYMENT.md`.
 
 ## Author
 
-Built by Ajeet Gupta as a full-stack portfolio project.
+Built by Ajeet Gupta
