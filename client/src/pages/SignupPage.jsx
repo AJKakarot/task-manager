@@ -55,7 +55,7 @@ const SignupPage = () => {
           label="Name"
           value={form.name}
           onChange={handleChange}
-          placeholder="Ajeet Sharma"
+          placeholder="Ajeet Gupta"
         />
         <InputField
           name="email"

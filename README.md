@@ -68,6 +68,17 @@ Task-Manager/
 └── server.js               # backend entrypoint
 ```
 
+## Architecture Diagram
+
+```mermaid
+flowchart LR
+  U[User Browser] --> F[Frontend: React + Vite on Vercel]
+  F -->|HTTPS /api| B[Backend: Node + Express on Render]
+  B -->|Mongoose| D[(MongoDB Atlas)]
+  B --> A[Auth Layer: JWT + Middleware]
+  A --> B
+```
+
 ## Live Demo
 
 - Frontend (Vercel): `https://your-frontend-url.vercel.app`
@@ -143,4 +154,4 @@ Add UI screenshots in a `screenshots/` folder and reference them here:
 
 ## Author
 
-Built by Ajeet as a full-stack portfolio project.
+Built by Ajeet Gupta as a full-stack portfolio project.
