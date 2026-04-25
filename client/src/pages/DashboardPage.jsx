@@ -84,11 +84,11 @@ const DashboardPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#0f0f0f] px-4 py-10 text-white">
+    <main className="min-h-screen bg-[#0f0f0f] px-3 py-6 text-white sm:px-4 sm:py-10">
       <div className="mx-auto w-full max-w-6xl">
         <header className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-semibold tracking-tight">Task Dashboard</h1>
+            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Task Dashboard</h1>
             <p className="mt-1 text-sm text-zinc-400">Welcome back, {user?.name}</p>
           </div>
           <button
@@ -115,7 +115,7 @@ const DashboardPage = () => {
           </article>
         </section>
 
-        <section className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-950/80 p-5">
+        <section className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
           <TaskForm
             title={title}
             description={description}

@@ -14,18 +14,18 @@ const TaskCard = ({ task, onToggleStatus, onDelete }) => {
         <TaskStatusBadge status={task.status} />
       </div>
 
-      <div className="mt-4 flex items-center gap-2">
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
         <button
           type="button"
           onClick={() => onToggleStatus(task)}
-          className="rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-[#f97316] hover:text-[#f97316]"
+          className="w-full rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-[#f97316] hover:text-[#f97316] sm:w-auto"
         >
           Mark as {task.status === "completed" ? "pending" : "completed"}
         </button>
         <button
           type="button"
           onClick={() => onDelete(task._id)}
-          className="rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-red-400 hover:text-red-300"
+          className="w-full rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-red-400 hover:text-red-300 sm:w-auto"
         >
           Delete
         </button>
